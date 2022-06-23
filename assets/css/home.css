@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: bisque;
+}
+.header{
+    max-width: 100%;
+    padding:0 20px 0;
+    background-color: grey;
+}
+.container_header{
+    display: flex;
+}
+.container_header ul li{
+float:left;
+list-style-type: none;
+margin: 0 15px;
+
+
+}
+.container_header .menu{
+    margin-left: 750px;
+}
+.container_header ul li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 20px 20px 25.5px ;
+}
+.container_header ul li a:hover{
+    background-color: rgb(89, 88, 88);
+    color: bisque;
+}
+.container_header .logo {
+    margin: 0 30px;
+}
+.container_header .logo img{
+    width: 60px;
+    height: auto;
+}
+
+.option_container{
+max-width: 40%;
+ display: flex;
+ margin: 50px auto;
+ padding:100px;
+background-color: rgb(240, 248, 255);
+border-radius: 50px;
+border: 2px solid black;
+}
+.option_container div{
+background-color: antiquewhite;
+width: 150px;
+height: 150px;
+text-align: center;
+border-radius: 10px;
+border: 1px solid gray;
+
+}
+.option_container .option1{
+    margin-right:auto ;
+    
+}
+.option_container .option2{
+    margin-left: auto;
+}
+.option_container div a{
+    text-decoration: none;
+    display: block;
+
+    padding: 56px 3px 74px;
+    color: black;
+    font-size: 20px;
+    
+    
+}
+.option_container div:hover{
+    transform: scale(1.1);
+    border: 1px solid black;
+    
+}

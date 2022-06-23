@@ -5,35 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Đăng nhập - Hệ thống quảng lý bus</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="login_register">
-            <div class="register"><a href="register.html">Đăng ký</a></div>
-            <div class="login"><a href="login.html">Đăng Nhập</a></div>
+        <div class="content">
+            <div class="d-flex login-main">
+                <div class=" img-decre col-5 ">
+                    <figure class=" full-width">
+                        <img src="./assets/image/logo-xe-bus-3.png" display="max-width:100%">
+                    </figure>
+                </div>
+                <div class="col-5 login-blank text-center">
+                    <form>
+                        <h2 class="">Đăng nhập hệ thống</h2>
+                        <input class="full-width" type="text" name="userName" value="" placeholder="Tên đăng nhập">
+                        <input class="full-width" type="password" name="pass" value="" placeholder="Mật Khẩu">
+                        <input type="button" class="full-width" value="Đăng Nhập">
+                        
+                        <strong><div>
+                            Nếu bạn chưa có tài khoản <a href="register.html">Đăng Ký</a>
+                        </div></strong>
+                    </form>
+
+
+                </div>
+               
+
+            </div>
+            <div class="content-foot text-center">
+                <strong><p>Hệ thống quản lý Bus được xây dựng và điều hành bởi nhóm 17</p></strong>
+
+            </div>
         </div>
-        <form>
-            <table class="form">
-                <tr>
-                    <td><label for="num">SĐT</label></td>
-                    <td><input type="text" value="" name='num'></td>
-
-                </tr>
-                <tr>
-                    <td><label for="pass">Mật khẩu</label></td>
-                    <td><input type="password" value="" name='pass'></td>
-                </tr>
-                <tr>
-                   <td colspan="2"><button type="submit">
-                    Gửi
-                </button></td> 
-                </tr>
-            </table>
-        </form>
-
     </div>
 </body>
 

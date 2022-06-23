@@ -1,83 +1,139 @@
-*{
+* {
    margin: 0;
-   padding: 0;}
-body{
-   background-color: bisque;
+   padding: 0;
 }
-.container{
-   max-width: 60%;
-   height: auto;
-   margin: 50px auto;
-   padding: 20px;
-   border: 1px solid black;
-   border-radius: 90px;
-   background-color: aliceblue;
-  
-}
-.login_register{
-   width: 70%;
-   margin: auto auto 50px;
-   
-}
-.login_register a{
-   display: block;
-   text-decoration: none;
-   height: 100%;
-   color: black;
-   text-align: center;
-   padding: 10px;
-}
-.login_register .login,.register{
-   width: 165px;
-   height: 40px;
-   background-color: bisque;
-   
-   border-radius: 5px;
-   
 
-   
+body {
+   font-size: 14px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   color: #000;
+   background-color: bisque;
 }
-.login_register .login{
+.upperCase{
+   text-transform: uppercase;
+}
+
+.col-1 {
+   width: 8.3%;
+}
+
+.col-2 {
+   width: 16.6%;
+}
+
+.col-3 {
+   width: 25%;
+}
+
+.col-4 {
+   width: 33.3%;
+}
+
+.col-5 {
+   width: 41.6%;
+}
+
+.col-6 {
+   width: 50%;
+}
+
+.col-7 {
+   width: 58.5%;
+}
+
+.col-8 {
+   width: 66.6%;
+}
+
+.col-9 {
+   width: 75%;
+}
+
+.col-10 {
+   width: 83.3%;
+}
+
+.col-11 {
+   width: 91.6%;
+}
+
+.col-12 {
+   width: 100%
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
    float: left;
 }
-.login_register .register{
-float: right;
+
+.d-flex {
+   display: flex;
 }
-table{
+
+.content {
+   max-width: 800px;
+   margin: 150px auto;
+   background-color: aliceblue;
+   border-radius: 10px;
+   padding: 20px;
+   box-shadow: 10px 1px 1px 1px gray;
+}
+
+.content-register {
+   max-width: 600px;
+
+}
+
+.full-width {
+   display: block;
+   width: 100%;
+}
+
+figure img {
+   max-width: 100%;
+}
+
+.text-center {
+   text-align: center;
+}
+
+.d-flex div {
+   margin: 10px 30px;
+}
+
+input,
+button {
+   padding: 10px;
+   margin: 20px 10px 30px;
    
-   padding: 20px 10px;
-   width: 800px;
-   height: auto;
-   margin: 20px auto;
+}
+
+button {
+   border: 0;
+   background-color: bisque;
+   font-weight: 600;
+   border-radius: 5px;
+   padding: 10px 0;
    
 }
-tr{
-   height: 50px;
-  
-}
 
-
-table input[type=text],input[type=email],input[type=password]{
-    width: 95%;
-    height: 30px;
-    padding: 2px 5px;
+button:focus-visible {
+   border: 1px solid yellow;
 
 }
 
-label{
-   text-align: left;
-}
-.option input[name="sex"]{
-  
-  text-align: center;
-}
-button{
-   height: 40px;
-   width: 150px;
-   margin: 0 auto;
+.div-right {
    float: right;
-}
 
-.role input[name='role'],.role span{
-   margin-right: 10px;
 }
