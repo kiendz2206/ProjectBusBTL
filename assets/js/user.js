@@ -129,15 +129,19 @@ function permission(role) {
     let user = sessionStorage.getItem('users');
     user = JSON.parse(user);
     console.log(user)
-    if (typeof user === 'object') {
+    if (user != null ) {
         for (var key in users) {
             if (user.userName == users[key].userName && user.password == users[key].password) {
                 if (user.role == role) {
                     return true
                 }
+                else{
+                    return false
+                }
 
             }
         }
     }
-    return false;
+    else{ return false;}
+   
 }
