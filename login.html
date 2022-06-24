@@ -7,6 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập - Hệ thống quảng lý bus</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="text/javascript" src="assets/js/user.js"></script>
+    <script>
+        
+        if(permission('admin')){
+            window.location.href = 'admin.html';
+        }
+        
+        if(permission('company')){
+            window.location.href = 'company.html';
+        }
+
+        if(permission('member')){
+            window.location.href = 'home.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -19,24 +34,27 @@
                     </figure>
                 </div>
                 <div class="col-5 login-blank text-center">
-                    <form>
                         <h2 class="">Đăng nhập hệ thống</h2>
-                        <input class="full-width" type="text" name="userName" value="" placeholder="Tên đăng nhập">
-                        <input class="full-width" type="password" name="pass" value="" placeholder="Mật Khẩu">
-                        <input type="button" class="full-width" value="Đăng Nhập">
-                        
-                        <strong><div>
-                            Nếu bạn chưa có tài khoản <a href="register.html">Đăng Ký</a>
-                        </div></strong>
-                    </form>
+                        <input id="userName" class="full-width" type="text" name="userName" value=""
+                            placeholder="Tên đăng nhập">
+                        <input id="password" class="full-width" type="password" name="pass" value=""
+                            placeholder="Mật Khẩu">
+                        <button class="full-width" value="Đăng Nhập" onclick="login()"> Đăng nhập </button>
+                        <strong>
+                            <div>
+                                Nếu bạn chưa có tài khoản <a href="register.html">Đăng Ký</a>
+                            </div>
+                        </strong>
 
 
                 </div>
-               
+
 
             </div>
             <div class="content-foot text-center">
-                <strong><p>Hệ thống quản lý Bus được xây dựng và điều hành bởi nhóm 17</p></strong>
+                <strong>
+                    <p>Hệ thống quản lý Bus được xây dựng và điều hành bởi nhóm 17</p>
+                </strong>
 
             </div>
         </div>
