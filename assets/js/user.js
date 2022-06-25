@@ -3,12 +3,21 @@ class usersx {
     constructor() {
         this.user = [
             {
-                userName: 'khoa',
+                userName: 'admin',
                 email: 'khoadepzai@gmail.com',
                 password: 'khoa2711',
                 date: '27/11/2003',
                 gender: 'nam',
                 role: 'admin',
+
+            },
+            {
+                userName: 'khoa',
+                email: 'khoadepzai@gmail.com',
+                password: 'khoa2711',
+                date: '27/11/2003',
+                gender: 'nam',
+                role: 'company',
             }
         ]
 
@@ -23,6 +32,7 @@ class usersx {
     }
 
 }
+// window.localStorage.setItem('users', JSON.stringify(userTest.getAllUser()));
 let userTest = new usersx;
 function register(e) {
     var userName = document.querySelector('#name').value;
@@ -36,7 +46,7 @@ function register(e) {
     console.log(oldUser);
     var json = JSON.stringify(userTest.getAllUser());
     window.localStorage.setItem('users', json);
-    var checkUserName = oldUser.every(function (user) {
+    var checkUserName = oldUser.some(function (user) {
         return user.userName == document.querySelector('#name').value;
 
     })
@@ -59,6 +69,13 @@ function register(e) {
 
     } else {
         alert('tài khoản đã được sử dụng')
+        document.querySelector('#name').value = '';
+        document.querySelector('#email').value='';
+        document.querySelector('#password').value='';
+        document.querySelector('#day').value='';
+        document.querySelector('#month').value='';
+        document.querySelector('#year').value='';
+        document.querySelector("input[name='sex']").value='';
     }
 
 
@@ -122,26 +139,26 @@ function login(e) {
 }
 let user = sessionStorage.getItem('user');
 user = JSON.parse(user);
-console.log(user)
+
 function permission(role) {
     let users = localStorage.getItem('users');
     users = JSON.parse(users);
     let user = sessionStorage.getItem('users');
     user = JSON.parse(user);
     console.log(user)
-    if (user != null ) {
+    if (user != null) {
         for (var key in users) {
             if (user.userName == users[key].userName && user.password == users[key].password) {
                 if (user.role == role) {
                     return true
                 }
-                else{
+                else {
                     return false
                 }
 
             }
         }
     }
-    else{ return false;}
-   
+    else { return false; }
+
 }

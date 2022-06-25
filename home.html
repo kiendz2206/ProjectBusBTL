@@ -8,7 +8,7 @@
     <title>Trang chủ</title>
     <script src="assets/js/user.js"></script>
     <script>
-        if(!permission('member')){
+        if(!permission('member') || !permission('admin')){
             window.location.href = 'login.html';
         }
     </script>

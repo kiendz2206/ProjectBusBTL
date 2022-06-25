@@ -15,6 +15,12 @@ body {
    padding:0 20px 0;
    background-color: gray;
 }
+.relative{
+   position: relative;
+}
+.absolute{
+   position: absolute;
+}
 .container_header{
    display: flex;
 }
@@ -155,8 +161,7 @@ figure img {
    margin: 10px 30px;
 }
 
-input,
-button {
+input,button {
    padding: 10px;
    margin: 20px 10px 30px;
    
@@ -184,12 +189,11 @@ button:focus-visible {
 
 .title-container{
    max-width: 800px;
-   margin-top: 50px;
-   margin-left: auto;
-   margin-right: 80px;
+  margin: 20px auto;
    border-radius: 5px;
    padding: 10px 0 10px;
-   color: aliceblue;
+   background-color: #E4CCF8;
+   color: black;
    justify-content: space-between;
 
 }
@@ -214,6 +218,49 @@ button:focus-visible {
    border-radius: 5px;
    padding: 10px;
 }
-.button-admin{
-   
+.button-option {
+  padding: 20px ;
+}
+.title-quanly{
+   max-width: 800px;
+   margin-top: 50px;
+   margin-left: auto;
+   margin-right: 80px;
+   border-radius: 5px;
+   padding: 10px 0 10px;
+   color: aliceblue;
+   justify-content: space-between;
+}
+.addEditRemove{
+   width: 500px;
+   margin: 50px auto;
+   padding: 50px;
+   background-color: #E4CCF8;
+   display: none;
+   border-radius: 5px;
+}
+.center-inline{
+  
+   left: 50%;
+   transform: translateX(-50%);
+}
+.content-input{
+   max-width: 80%;
+   margin: 0 auto;
+}
+.input-lable{
+   width: 80%;
+}
+#add:target{
+   display: inline-block;
+}
+#remove:target{
+   display: inline-block;
+}
+#edit:target{
+   display: inline-block;
+}
+a{
+   text-decoration: none;
+  
 }
