@@ -1,4 +1,4 @@
-//để anh viết cho nốt rồi cứ theo mẫu này lm
+
 class Bus {
 
     constructor() {
@@ -31,7 +31,6 @@ class Bus {
         return false;
     }
 
-    //hàm cập nhật lại dữ liệu
     update(index) {
         this.data[index].status = this.status;
         this.data[index].ironNumber = this.ironNumber;
@@ -40,20 +39,19 @@ class Bus {
         this.save();
     }
 
-    //hàm chức năng thêm
     add() {
-        //push thêm phần tử vào biến data
+   
         this.data.push({
             ironNumber: this.ironNumber,
             status: this.status,
             mainPeople: this.mainPeople,
             seccondPeople: this.seccondPeople,
         });
-        //tiến hành lưu
+       
         this.save();
     }
 
-    //hàm chức năng lưu vào storage
+
     save() {
         localStorage.setItem(this.storage_key, JSON.stringify(this.data));
     }
@@ -87,12 +85,12 @@ function destroy(index) {
 }
 
 function edit(index) {
-    //dựa vào key để lấy ra phần tử
+    
     let objBus = new Bus;
     if (objBus.check(index)) {
-        //mở popup edit lên
+    
         document.location.hash = '#edit';
-        //giờ add value này vào form edit
+       
         document.querySelector('#edit-ironNumber').value = objBus.ironNumber;
         document.querySelector('#edit-status').value = objBus.status;
         document.querySelector('#edit-mainPeople').value = objBus.mainPeople;
@@ -104,7 +102,7 @@ function edit(index) {
 }
 
 function update() {
-    // lấy ra vị trí index để thwucj hiện update
+   
     let index = document.querySelector('#btn-edit-bus').getAttribute('data-index');
     let objBus = new Bus;
     if (objBus.check(index)) {
