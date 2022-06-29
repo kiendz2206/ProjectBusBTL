@@ -1,164 +1,150 @@
-
-class usersx {
+//it nhat phai de 1 thang admin fix cung de quan ly them sua xoa user mois]
+class User {
+    //hôm qua a dặn kỹ rồi viết đúng chuẩn tạo quy tắc đến lúc thầy hỏi 1 cái thôi . cái sau cũng giống cái trc thì hỏi lm i nữa
     constructor() {
-        this.user = [
-            {
-                userName: 'admin',
-                email: 'khoadepzai@gmail.com',
-                password: 'khoa2711',
-                date: '27/11/2003',
-                gender: 'nam',
-                role: 'admin',
-
-            },
-            {
-                userName: 'khoa',
-                email: 'khoadepzai@gmail.com',
-                password: 'khoa2711',
-                date: '27/11/2003',
-                gender: 'nam',
-                role: 'company',
-            }
-        ]
-
-    }
-    add(user) {
-        this.user.push(user);
-
-    }
-    getAllUser() {
-        return this.user;
+        this.localKey = 'tbl_users';
+        this.admin = [{
+            userName: 'admin',
+            password: 'admin',
+            email: 'admin@gmail.com',
+            gender: 'nam',
+            role: 'admin',
+            date: '20/2/2022',
+        },
+        {
+            userName: 'comany',
+            password: 'company',
+            email: 'company@gmail.com',
+            gender: 'nam',
+            role: 'company',
+            date: '20/2/2022',
+        }],
+            this.data = this.load();
+        this.userName = '';
+        this.password = '';
+        this.email = '';
+        this.date = '';
+        this.gender = '';
+        this.role = 'member';
 
     }
 
-}
-// window.localStorage.setItem('users', JSON.stringify(userTest.getAllUser()));
-let userTest = new usersx;
-function register(e) {
-    var userName = document.querySelector('#name').value;
-    var email = document.querySelector('#email').value;
-    var password = document.querySelector('#password').value;
-    var day = document.querySelector('#day').value;
-    var month = document.querySelector('#month').value;
-    var year = document.querySelector('#year').value;
-    var gender = document.querySelector("input[name='sex']").value;
-    var oldUser = JSON.parse(window.localStorage.getItem('users'));
-    console.log(oldUser);
-    var json = JSON.stringify(userTest.getAllUser());
-    window.localStorage.setItem('users', json);
-    var checkUserName = oldUser.some(function (user) {
-        return user.userName == document.querySelector('#name').value;
-
-    })
-    console.log(checkUserName)
-
-    if (checkUserName == false) {
-        var user = {
-            userName: userName,
-            email: email,
-            password: password,
-            date: day + '/' + month + '/' + year,
-            gender: gender,
-            role: 'member',
-        }
-        userTest.add(user);
-        var json = JSON.stringify(userTest.getAllUser());
-        window.localStorage.setItem('users', json);
-        alert('đăng ký thành công')
-        window.location.href = 'login.html';
-
-    } else {
-        alert('tài khoản đã được sử dụng')
-        document.querySelector('#name').value = '';
-        document.querySelector('#email').value='';
-        document.querySelector('#password').value='';
-        document.querySelector('#day').value='';
-        document.querySelector('#month').value='';
-        document.querySelector('#year').value='';
-        document.querySelector("input[name='sex']").value='';
+    save() {
+        localStorage.setItem(this.localKey, JSON.stringify(this.data))
     }
 
-
-
-
-
-}
-
-
-
-function login(e) {
-    var userName = document.querySelector('#userName').value;
-    var password = document.querySelector('#password').value;
-
-    var user = JSON.parse(localStorage.getItem('users'));
-    console.log(user)
-    if (userName == '' || password == '') {
-        alert('nhập tài khoản mật khẩu đê')
-    } else {
-        var checkUser = user.some(function (user) {
-            return user.userName == document.querySelector('#userName').value
-                &&
-                user.password == document.querySelector('#password').value
-
-        })
-        console.log(checkUser)
-        if (checkUser == true) {
-            for (var key in user) {
-                if (user[key].userName == document.querySelector('#userName').value) {
-                    sessionStorage.setItem('users', JSON.stringify(user[key]))
-                    switch (user[key].role) {
-                        case 'member':
-                            window.location.href = 'home.html'
-
-                            break;
-
-                        case 'admin':
-                            window.location.href = 'admin.html'
-
-                            break;
-
-                        case 'company':
-                            alert('chưa làm')
-
-                            break;
-
-
-                    }
-                }
-            }
-
+    load() {
+        let userList = this.admin;
+        if (localStorage.hasOwnProperty(this.localKey)) {
+            return JSON.parse(localStorage.getItem(this.localKey))
         } else {
-            alert('nhập lại mật khẩu đê mở to mắt ra nhìn xem có sai ký tự nào không ?')
+            return userList
         }
-
-
 
     }
 
+    add() {
+
+        this.data.push({
+            userName: this.userName,
+            password: this.password,
+            email: this.email,
+            gender: this.gender,
+            role: this.role,
+            userName: this.userName,
+            date: this.date,
+        });
+        this.save()
+    }
+
+    check() {
+    }
 
 }
-let user = sessionStorage.getItem('user');
-user = JSON.parse(user);
 
-function permission(role) {
-    let users = localStorage.getItem('users');
-    users = JSON.parse(users);
-    let user = sessionStorage.getItem('users');
-    user = JSON.parse(user);
-    console.log(user)
-    if (user != null) {
-        for (var key in users) {
-            if (user.userName == users[key].userName && user.password == users[key].password) {
-                if (user.role == role) {
-                    return true
-                }
-                else {
-                    return false
-                }
 
+
+function register() {
+
+    //obj viết tắt của Object = đối tượng
+    let objUser = new User;
+    console.log(objUser.data)
+
+    let day = document.querySelector('#day').value
+    let month = document.querySelector('#month').value
+    let year = document.querySelector('#year').value
+    objUser.userName = document.querySelector('#userName').value;
+    objUser.password = document.querySelector('#password').value;
+    objUser.email = document.querySelector('#email').value;
+    objUser.date = day + '/' + month + '/' + year;
+    objUser.gender = document.querySelector("input[name='sex']").value;
+    for (let key in objUser.data) {
+        if (objUser.data[key].userName == objUser.userName || objUser.data[key].email == objUser.email) {
+            document.querySelector('#userName').value = '',
+                document.querySelector('#password').value = '',
+                document.querySelector('#email').value = '',
+                document.querySelector('#day').value = '',
+                document.querySelector('#month').value = '',
+                document.querySelector('#year').value = '',
+                document.querySelector("input[name='sex']").value = '';
+            return alert('tài khoản đã tồn tại')
+        } else {
+            objUser.add()
+            document.querySelector('#userName').value = '',
+                document.querySelector('#password').value = '',
+                document.querySelector('#email').value = '',
+                document.querySelector('#day').value = '',
+                document.querySelector('#month').value = '',
+                document.querySelector('#year').value = '',
+                document.querySelector("input[name='sex']").value = '';
+            return alert('đăng ký thành công')
+        }
+    }
+}
+function login() {
+
+    //obj viết tắt của Object = đối tượng
+    let objUser = new User;
+    objUser.userName = document.querySelector('#userName').value;
+    objUser.password = document.querySelector('#password').value;
+    for (let key in objUser.data) {
+        if (objUser.userName == objUser.data[key].userName && objUser.password == objUser.data[key].password) {
+            sessionStorage.setItem(objUser.localKey, JSON.stringify(objUser.data[key]));
+            alert('đăng nhập thành công')
+            switch (objUser.data[key].role) {
+                case 'member':
+                    window.location.href = 'home.html'
+                    break;
+                case 'admin':
+                    window.location.href = 'admin.html'
+                    break;
+                case 'company':
+                    window.location.href = 'page-company.html'
+                    break;
+                default:
+                    break;
             }
+
         }
     }
-    else { return false; }
+
+
 
 }
+function permission(index) {
+    let objUser = new User;
+
+    let user_login = JSON.parse(sessionStorage.getItem(objUser.localKey))
+    if (user_login != null) {
+        if (user_login.role == index) {
+            return true
+        } else {
+            return false
+        }
+
+    } else{
+        return false
+    }
+}
+
+

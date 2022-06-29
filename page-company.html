@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/bus.js"></script>
 </head>
 
 <body>
@@ -34,7 +33,6 @@
         <div id="add" class="absolute center-inline addEditRemove add">
             <div class="content-input">
                 <strong><h1 class="text-center">Thêm xe</h1></strong>
-
                 <input class="input-lable" type="text" name="bienso" id="add-ironNumber" value="" placeholder="Biển số xe ...">
                 <input class="input-lable" type="text" name="trangthai" id="add-status" value="" placeholder="Trạng thái ...">
                 <input class="input-lable" type="text" name="laichinh" id="add-mainPeople" value="" placeholder="Lái chính (Họ và tên)...">
@@ -53,7 +51,7 @@
                 <input class="input-lable" type="text" name="laiphu" id="edit-peopleNd" value="" placeholder="Lái Phụ (Họ và tên)...">
 
             </div>
-            <button  class="button-edit full-width" onclick="edit()">sửa</button>
+            <button  class="button-edit full-width" data-index="" onclick="update(this)" id="btn-edit-bus">Cập nhật</button>
         </div>
         <div id="remove" class="absolute center-inline addEditRemove remove">
             
@@ -66,27 +64,33 @@
             <button  class="button-edit full-width" onclick="remove()">xóa</button>
         </div>
         <form class="full-width text-center">
+            <div class="col-4 button"><a href="page-company.html" class="button-option editButton full-width">Danh sách xe</a></div>
             <div class="col-4 button" ><a href="#add" class="button-option addButton full-width " >Thêm xe</a></div>
-            <div class="col-4 button"><a href="#edit" class="button-option editButton full-width">Sửa xe</a></div>
-            <div class="col-4 button"><a href="#remove" class="button-option removeButton full-width" >xóa xe</a></div>
+            <div class="col-4 button"><a href="#remove" class="button-option removeButton full-width" >Xóa tất cả</a></div>
+            <table style="width:100%" id="tblList">
+                <thead>
+                    <th width="50">STT</th>
+                    <th>Biển số</th>
+                    <th>Lái chính</th>
+                    <th>Lái phụ</th>
+                    <th>Trạng thái</th>
+                    <th width="150">Hành động</th>
+                </thead>
+                <tbody>
 
-            <table style="width:100%">
-                <tr>
-                    <th style="width:20%">STT</th>
-                    <th style="width:20%">BIỂN SỐ</th>
-                    <th style="width:20%">Trạng thái</th>
-                    <th style="width:20%">lái chính</th>
-                    <th style="width:20%">lái phụ</th>
-
-
-                </tr>
+                </tbody>
+                
             </table>
         </form>
-
-
-
-
     </div>
+    <script src="assets/js/bus.js"></script>
+    <script>
+        show();
+    </script>
+    <script>
+         if(permission('company') == false){
+            window.location.href = 'login.html';}
+    </script>
 </body>
 
 </html>
