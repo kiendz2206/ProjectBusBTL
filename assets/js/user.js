@@ -107,26 +107,37 @@ function login() {
     let objUser = new User;
     objUser.userName = document.querySelector('#userName').value;
     objUser.password = document.querySelector('#password').value;
-    for (let key in objUser.data) {
-        if (objUser.userName == objUser.data[key].userName && objUser.password == objUser.data[key].password) {
-            sessionStorage.setItem(objUser.localKey, JSON.stringify(objUser.data[key]));
-            alert('đăng nhập thành công')
-            switch (objUser.data[key].role) {
-                case 'member':
-                    window.location.href = 'home.html'
-                    break;
-                case 'admin':
-                    window.location.href = 'admin.html'
-                    break;
-                case 'company':
-                    window.location.href = 'page-company.html'
-                    break;
-                default:
-                    break;
+    if (objUser.userName != null && objUser.password != null) {
+        for (let key in objUser.data) {
+            if (objUser.userName == objUser.data[key].userName && objUser.password == objUser.data[key].password) {
+                sessionStorage.setItem(objUser.localKey, JSON.stringify(objUser.data[key]));
+                alert('đăng nhập thành công')
+                switch (objUser.data[key].role) {
+                    case 'member':
+                        window.location.href = 'home.html'
+                        break;
+                    case 'admin':
+                        window.location.href = 'admin.html'
+                        break;
+                    case 'company':
+                        window.location.href = 'page-company.html'
+                        break;
+                    default:
+                        break;
+                }
+                return 0;
             }
 
         }
+        alert('tài khoản mật khẩu không chính xác')
+        document.querySelector('#userName').value = '';
+        document.querySelector('#password').value = '';
+    } else{
+        alert('vui lòng nhập tài khoản và mật khẩu trước khi đăng nhập')
     }
+
+
+
 
 
 
@@ -142,7 +153,7 @@ function permission(index) {
             return false
         }
 
-    } else{
+    } else {
         return false
     }
 }
