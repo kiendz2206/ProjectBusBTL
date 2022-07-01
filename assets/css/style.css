@@ -262,5 +262,22 @@ button:focus-visible {
 }
 a{
    text-decoration: none;
-  
+ 
+}
+.title-large{
+   font-size: 30px;
+   font-family:' Courier-new';
+   letter-spacing: 10px;
+   word-spacing: 40px;
+   line-height: 120%;
+   margin: 70px;
+}
+.container-content{
+ max-width: 80%;
+ margin: 0 auto;
+
+}
+.container-content input{
+   max-width: 60%;
+   margin: 0 30px;
 }

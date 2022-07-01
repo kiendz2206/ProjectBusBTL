@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý user</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container_header">
+            <div class="logo">
+                <a href="#"><img src="./assets/image/logo-xe-bus-3.png"> </a>
+            </div>
+            <div class="menu">
+                <ul class="bold-text">
+                    <li><a href="admin.html">Admin</a></li>
+                    <li><a href="admin-quanly.html">Bus</a></li>
+                    <li><a href="admin-quanLyUser.html">User</a></li>
+                    <li><a href="#">About</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="content content-table">
+        <!-- <form class="full-width text-center"> -->
+            <div id="edit" class="absolute center-inline addEditRemove edit">
+                <div class="content-input">
+                    <strong><h1 class="text-center">Sửa thông tin User</h1></strong>
+    
+                    <input class="input-lable" type="text" name="userName" id="edit-userName" value="" placeholder="User Name ...">
+                    <input class="input-lable" type="text" name="email" id="edit-email" value="" placeholder="Email...">
+    
+                </div>
+                <button  class="button-edit full-width" data-index="" onclick="updateUser()" id="btn-edit-user">Cập nhật</button>
+            </div>
+
+            <table style="width:100%" id="tbUser" class="text-center">
+                <thead>
+                    <th width="50">STT</th>
+                    <th>User Name</th>
+                    <th>password</th>
+                    <th>email</th>
+                    <th>role</th>
+                    <th width="150">Hành động</th>
+                </thead>
+                <tbody></tbody>
+
+            </table>
+        <!-- </form> -->
+    </div>
+    <script src="assets/js/user.js"></script>
+    <script>showUser()</script>
+
+</body>
+
+</html>

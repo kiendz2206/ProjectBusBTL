@@ -51,13 +51,29 @@ class User {
             email: this.email,
             gender: this.gender,
             role: this.role,
-            userName: this.userName,
             date: this.date,
         });
         this.save()
     }
 
-    check() {
+    check(index) {
+        if(index in this.data){
+            this.userName = this.data[index].userName;
+            this.email = this.data[index].email;
+            this.gender = this.data[index].gender;
+            this.role = this.data[index].role;
+            this.date = this.data[index].date;
+            return true;
+        }
+        return false;
+    }
+    update(index){
+        this.data[index].userName = this.userName;
+        this.data[index].userName = this.userName;
+        this.data[index].userName = this.userName;
+        this.data[index].userName = this.userName;
+        this.data[index].userName = this.userName;
+        this.save()
     }
 
 }
@@ -157,5 +173,41 @@ function permission(index) {
         return false
     }
 }
-
+function edit(index){
+    let objUser = new User;
+    if(objUser.check(index)){
+        document.location.hash = '#edit'
+        document.querySelector('#edit-userName').value = objUser.userName;
+        document.querySelector('#edit-email').value = objUser.email;
+        document.querySelector('#btn-edit-user').setAttribute('data-index',index);
+    }
+}
+function updateUser(){
+    let objUser = new User;
+    let index = document.querySelector('#btn-edit-user').getAttribute('data-index');
+    objUser.userName = document.querySelector('#edit-userName').value ;
+    objUser.email = document.querySelector('#edit-email').value ;
+    objUser.update(index)
+    location.hash = '#finish'
+    showUser();
+}
+function remove(index){
+    let objUser = new User;
+    objUser.data.splice(index,1);
+    objUser.save();
+    showUser()
+}
+function showUser(){
+    let tableBody = document.querySelector('#tbUser tbody');
+    let tr = ' ';
+    let stt = 0
+    let objUser = new User;
+    for(let key in objUser.data){
+        stt++
+       tr += '<tr>';
+       tr += '<td>'+stt+ '</td>'+'<td>'+objUser.data[key].userName+'</td>'+'<td>'+objUser.data[key].password+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+objUser.data[key].role+'</td>'+'<td>'+'<button class="buton" onclick="edit('+key+')"> sửa </butotn>'+'<button class="buton" onclick="remove('+key+')"> xóa </butotn>'+'</td>'
+       tr += '</tr>'
+    }
+    tableBody.innerHTML = tr;
+} 
 

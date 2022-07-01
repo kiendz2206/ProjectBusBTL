@@ -55,6 +55,9 @@ class Bus {
     save() {
         localStorage.setItem(this.storage_key, JSON.stringify(this.data));
     }
+    delete_all(){
+        this.data.splice(0,(this.data.length)-1)
+    }
 
 }
 
@@ -133,5 +136,10 @@ function show() {
         tr += '</tr>';
     }
     table.innerHTML = tr;
+
+}
+function delete_all(){
+    let objBus = new Bus;
+    return objBus.delete_all();
 }
 

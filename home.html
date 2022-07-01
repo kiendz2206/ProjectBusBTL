@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Trang chủ</title>
     <script src="assets/js/user.js"></script>
     <script>
-        if(!permission('member')){
+        if(!permission('member') ){
             window.location.href = 'login.html';
         }
     </script>
@@ -31,15 +31,18 @@
             </div>
         </div>
     </div>
-    <div class="option_container">
-        <div class="option1">
-            <a href="#">Điểm đón </a>
+    <div class="container">
+        <div class="title-large text-center bold-text">
+            <h1>Bus Peachy</h1>
+
         </div>
-        <div class="option2">
-            <a href="#"> Bus </a>
+        <div class="find container-content">
+            <input class="input-lable" type="title" value="">
+            <button class="button button-invite">Tra</button>
 
         </div>
         
     </div>
+    
 </body>
 </html>
