@@ -31,23 +31,34 @@
         <div class="title-container text-center">
             <h1>Thông tin các xe</h1>
         </div>
+        
         <div class="button-admin">
-           <strong><a href="#" class="full-width text-center ">lời mời tham gia</a></strong> 
+           <strong><a href="#acpt-bus" class="full-width text-center ">lời mời tham gia</a></strong> 
         </div>
+        <table>
+
+        </table>
         <div class="content content-table">
             <form class="full-width" >
                 <table style="width:100%" id="" >
-                    <tr>
+                    <thead>
                         <th style="width:15%">STT</th>
                         <th style="width:25%">Tên NCC</th>
-                        <th style="width:30%">SĐT</th>
+                        <th style="width:30%">SĐT/Email</th>
                         <th style="width:30%">số lượng xe đăng ký</th>
-                    </tr>
+                    </thead>
+                    <tbody></tbody>
                     <tr id="child" class=" text-center" >
 
                     </tr>
                 </table>
             </form>
+            <div id="acpt-bus" class="absolute center-inline addEditRemove">
+               <table id="tbl-apct">
+
+               </table>
+
+            </div>
     
         </div>
     </div>
@@ -55,7 +66,6 @@
         
         if(permission('admin') == false){
             window.location.href = 'login.html';}
-        console.log(permission('admin'))
     </script>
 </body>
 </html>

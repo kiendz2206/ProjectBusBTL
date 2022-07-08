@@ -10,53 +10,67 @@ body {
    color: #000;
    background-color: bisque;
 }
-.header{
+
+.header {
    max-width: 100%;
-   padding:0 20px 0;
+   margin: 0 auto;
+   padding: 0 20px 0;
    background-color: gray;
+
 }
-.relative{
+
+.relative {
    position: relative;
 }
-.absolute{
+
+.absolute {
    position: absolute;
 }
-.container_header{
+
+.container_header {
    display: flex;
 }
-.container_header ul li{
-float:left;
-list-style-type: none;
-margin: 0 15px;
+
+.container_header ul li {
+   float: left;
+   list-style-type: none;
+   margin: 0 15px;
 
 
 }
-.container_header .menu{
+
+.container_header .menu {
    margin-left: 750px;
 }
-.container_header ul li a{
+
+.container_header ul li a {
    display: block;
    text-align: center;
    text-decoration: none;
    font-size: 16px;
    color: black;
-   padding: 20px 20px 25.5px ;
+   padding: 20px 20px 25.5px;
 }
-.container_header ul li a:hover{
+
+.container_header ul li a:hover {
    background-color: rgb(89, 88, 88);
    color: bisque;
 }
+
 .container_header .logo {
    margin: 0 30px;
 }
-.container_header .logo img{
+
+.container_header .logo img {
    width: 60px;
    height: auto;
 }
-.upperCase{
+
+.upperCase {
    text-transform: uppercase;
 }
-.bold-text{
+
+.bold-text {
    font-weight: bold;
 }
 
@@ -126,10 +140,15 @@ margin: 0 15px;
 .d-flex {
    display: flex;
 }
-table, th, td {
+
+table,
+th,
+td {
    border: 1px solid black;
    border-collapse: collapse;
-   line-height: 40px}
+   line-height: 40px
+}
+
 .content {
    max-width: 800px;
    margin: 150px auto;
@@ -161,10 +180,11 @@ figure img {
    margin: 10px 30px;
 }
 
-input,button {
+input,
+button {
    padding: 10px;
    margin: 20px 10px 30px;
-   
+
 }
 
 button {
@@ -173,7 +193,7 @@ button {
    font-weight: 600;
    border-radius: 5px;
    padding: 10px 0;
-   
+
 }
 
 button:focus-visible {
@@ -187,9 +207,9 @@ button:focus-visible {
 }
 
 
-.title-container{
+.title-container {
    max-width: 800px;
-  margin: 20px auto;
+   margin: 20px auto;
    border-radius: 5px;
    padding: 10px 0 10px;
    background-color: #E4CCF8;
@@ -197,31 +217,38 @@ button:focus-visible {
    justify-content: space-between;
 
 }
-.button-invite{
+
+.button-invite {
    margin: 0 auto;
    background-color: aliceblue;
    max-width: 200px;
    border: 1px solid black;
    border-radius: 3px;
+   
 }
-.button-invite a{
+
+.button-invite a {
    text-decoration: none;
    color: #000;
    line-height: 50px;
-  
+
 }
-.content-table{
+
+.content-table {
    margin: 10px auto;
 }
-.decre-text{
+
+.decre-text {
    background-color: yellow;
    border-radius: 5px;
    padding: 10px;
 }
+
 .button-option {
-  padding: 20px ;
+   padding: 20px;
 }
-.title-quanly{
+
+.title-quanly {
    max-width: 800px;
    margin-top: 50px;
    margin-left: auto;
@@ -231,7 +258,8 @@ button:focus-visible {
    color: aliceblue;
    justify-content: space-between;
 }
-.addEditRemove{
+
+.addEditRemove {
    width: 500px;
    margin: 50px auto;
    padding: 50px;
@@ -239,45 +267,54 @@ button:focus-visible {
    display: none;
    border-radius: 5px;
 }
-.center-inline{
-  
+
+.center-inline {
+
    left: 50%;
    transform: translateX(-50%);
 }
-.content-input{
+
+.content-input {
    max-width: 80%;
    margin: 0 auto;
 }
-.input-lable{
+
+.input-lable {
    width: 80%;
 }
-#add:target{
+
+#add:target,#remove:target,#edit:target {
    display: inline-block;
 }
-#remove:target{
-   display: inline-block;
+#acpt-bus:target{
+   display: block;
 }
-#edit:target{
-   display: inline-block;
-}
-a{
+
+a {
    text-decoration: none;
- 
+
 }
-.title-large{
-   font-size: 30px;
-   font-family:' Courier-new';
-   letter-spacing: 10px;
+
+.title-large {
+   font-size: 100px;
+   font-family: ' Courier-new';
+   letter-spacing: 5px;
    word-spacing: 40px;
    line-height: 120%;
    margin: 70px;
 }
-.container-content{
- max-width: 80%;
- margin: 0 auto;
+
+.container-content {
+   width: 80%;
+   margin: 0 auto;
+
+
 
 }
-.container-content input{
+#acpt-bus{
+   top: 90px;
+}
+.container-content input {
    max-width: 60%;
    margin: 0 30px;
 }

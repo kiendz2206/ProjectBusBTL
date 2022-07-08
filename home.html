@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Trang chủ</title>
     <script src="assets/js/user.js"></script>
     <script>
-        if(!permission('member') ){
+        if (!permission('member')) {
             window.location.href = 'login.html';
         }
     </script>
 </head>
+
 <body>
     <div class="header">
         <div class="container_header">
@@ -20,12 +22,12 @@
                 <a href="#"><img src="./assets/image/logo-xe-bus-3.png"> </a>
             </div>
             <div class="menu">
-                <ul>
+                <ul class="bold-text">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">About</a></li>
-                    
+
                 </ul>
 
             </div>
@@ -33,16 +35,22 @@
     </div>
     <div class="container">
         <div class="title-large text-center bold-text">
-            <h1>Bus Peachy</h1>
+            <span>Bus Peachy</span>
 
         </div>
-        <div class="find container-content">
-            <input class="input-lable" type="title" value="">
-            <button class="button button-invite">Tra</button>
+        <div class="find container-content full-width">
+            <div>
+                <input class="input-lable" type="title" value="">
+                <button class="button button-invite">Tra</button>
+            </div>
 
         </div>
-        
+        <table>
+            
+        </table>
+
     </div>
-    
+
 </body>
+
 </html>

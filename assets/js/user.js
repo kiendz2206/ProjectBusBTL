@@ -1,6 +1,6 @@
-//it nhat phai de 1 thang admin fix cung de quan ly them sua xoa user mois]
+
 class User {
-    //hôm qua a dặn kỹ rồi viết đúng chuẩn tạo quy tắc đến lúc thầy hỏi 1 cái thôi . cái sau cũng giống cái trc thì hỏi lm i nữa
+    
     constructor() {
         this.localKey = 'tbl_users';
         this.admin = [{
@@ -12,7 +12,7 @@ class User {
             date: '20/2/2022',
         },
         {
-            userName: 'comany',
+            userName: 'company',
             password: 'company',
             email: 'company@gmail.com',
             gender: 'nam',
@@ -85,7 +85,6 @@ function register() {
     //obj viết tắt của Object = đối tượng
     let objUser = new User;
     console.log(objUser.data)
-
     let day = document.querySelector('#day').value
     let month = document.querySelector('#month').value
     let year = document.querySelector('#year').value
@@ -113,7 +112,8 @@ function register() {
                 document.querySelector('#month').value = '',
                 document.querySelector('#year').value = '',
                 document.querySelector("input[name='sex']").value = '';
-            return alert('đăng ký thành công')
+             alert('đăng ký thành công')
+              return location.href = 'login.html'
         }
     }
 }
@@ -151,12 +151,6 @@ function login() {
     } else{
         alert('vui lòng nhập tài khoản và mật khẩu trước khi đăng nhập')
     }
-
-
-
-
-
-
 }
 function permission(index) {
     let objUser = new User;
@@ -205,7 +199,7 @@ function showUser(){
     for(let key in objUser.data){
         stt++
        tr += '<tr>';
-       tr += '<td>'+stt+ '</td>'+'<td>'+objUser.data[key].userName+'</td>'+'<td>'+objUser.data[key].password+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+objUser.data[key].role+'</td>'+'<td>'+'<button class="buton" onclick="edit('+key+')"> sửa </butotn>'+'<button class="buton" onclick="remove('+key+')"> xóa </butotn>'+'</td>'
+       tr += '<td>'+stt+ '</td>'+'<td>'+objUser.data[key].userName+'</td>'+'<td>'+objUser.data[key].password+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+objUser.data[key].role+'</td>'+'<td>'+'<button class="buton" onclick="edit('+key+')"> sửa </button>'+'<button class="buton" onclick="remove('+key+')"> xóa </button>'+'</td>'
        tr += '</tr>'
     }
     tableBody.innerHTML = tr;

@@ -5,7 +5,7 @@ class Bus {
         this.storage_key = 'tbl_bus';
         this.data = this.load();
 
-        this.status = '';
+        this.status = 'Chờ xét duyệt';
         this.ironNumber = '';
         this.mainPeople = '';
         this.seccondPeople = '';
@@ -21,8 +21,7 @@ class Bus {
 
     //hàm có chức năng check key xem có tồn tại trong dữ liệu hay ko
     check(index) {
-        if (index in this.data) {
-            this.status = this.data[index].status;
+        if (index in this.data) { 
             this.ironNumber = this.data[index].ironNumber;
             this.mainPeople = this.data[index].mainPeople;
             this.seccondPeople = this.data[index].seccondPeople;
@@ -32,7 +31,7 @@ class Bus {
     }
 
     update(index) {
-        this.data[index].status = this.status;
+        this.data[index].status = this.status
         this.data[index].ironNumber = this.ironNumber;
         this.data[index].mainPeople = this.mainPeople;
         this.data[index].seccondPeople = this.seccondPeople;
@@ -56,7 +55,14 @@ class Bus {
         localStorage.setItem(this.storage_key, JSON.stringify(this.data));
     }
     delete_all(){
-        this.data.splice(0,(this.data.length)-1)
+        this.data.splice(0,this.data.length)
+    }
+    apceptBus(index){
+        if(this.check(index)){
+            this.status = 'Đang hoạt động';
+            this.update(index);
+        }
+
     }
 
 }
@@ -64,12 +70,12 @@ class Bus {
 function add() {
     let objBus = new Bus;
     objBus.ironNumber = document.querySelector('#add-ironNumber').value;
-    objBus.status = document.querySelector('#add-status').value;
+  
     objBus.mainPeople = document.querySelector('#add-mainPeople').value;
     objBus.seccondPeople = document.querySelector('#add-peopleNd').value;
     objBus.add();
     document.querySelector('#add-ironNumber').value = '';
-    document.querySelector('#add-status').value = '';
+
     document.querySelector('#add-mainPeople').value = '';
     document.querySelector('#add-peopleNd').value = '';
     document.location.hash = '#finish';
@@ -95,10 +101,8 @@ function edit(index) {
         document.location.hash = '#edit';
        
         document.querySelector('#edit-ironNumber').value = objBus.ironNumber;
-        document.querySelector('#edit-status').value = objBus.status;
         document.querySelector('#edit-mainPeople').value = objBus.mainPeople;
         document.querySelector('#edit-peopleNd').value = objBus.seccondPeople;
-
         document.querySelector('#btn-edit-bus').setAttribute('data-index', index);
     }
 
@@ -110,7 +114,6 @@ function update() {
     let objBus = new Bus;
     if (objBus.check(index)) {
         objBus.ironNumber = document.querySelector('#edit-ironNumber').value;
-        objBus.status = document.querySelector('#edit-status').value;
         objBus.mainPeople = document.querySelector('#edit-mainPeople').value;
         objBus.seccondPeople = document.querySelector('#edit-peopleNd').value;
         objBus.update(index);
@@ -131,7 +134,7 @@ function show() {
         let reverse_key = objBus.data.length - key -1;
         let bus = objBus.data[key];
         tr += '<tr>';
-        tr += '<td>' + stt + '</td><td>' + bus.ironNumber + '</td><td>' + bus.status + '</td><td>' + bus.mainPeople + '</td><td>' + bus.seccondPeople + '</td>';
+        tr += '<td>' + stt + '</td><td>' + bus.ironNumber + '</td><td>' + bus.mainPeople + '</td><td>' + bus.seccondPeople + '</td><td>' + bus.status + '</td>';
         tr += '<td><button type="button" onclick="edit(' + reverse_key + ')" class="btn-edit">Sửa</button><button type="button" onclick="destroy(' + reverse_key + ')" class="btn-delete">Xóa</button></td>';
         tr += '</tr>';
     }
@@ -139,7 +142,26 @@ function show() {
 
 }
 function delete_all(){
+    if(confirm('Bạn có muốn xóa tất cả user ??')){
     let objBus = new Bus;
-    return objBus.delete_all();
+    objBus.delete_all();
+    objBus.save();
+    show();
+    }
+    
+}
+
+
+function showBus_manager(){
+    let objBus = new Bus;
+    let tr ='';
+    let table = document.querySelector('#tbl-acpt');
+    for(let key in objBus.data){
+        if(objBus.data[key].status === 'Đang hoạt động'){
+            tr+= '<tr>';
+            tr+= ''
+
+        }
+    }
 }
 
