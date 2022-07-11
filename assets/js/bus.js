@@ -186,4 +186,19 @@ function showBus_manager(){
     }
    
 }
+function findBus(){
+    let busFind = document.querySelector('#findBus').value;
+    console.log(busFind)
+    let objBus = new Bus;
+    let tblFind = document.querySelector('#resultFind');
+    let div = '';
+    for(let key in objBus.data){
+        if(objBus.data[key].status == 'đang hoạt động' && objBus.data[key].ironNumber == busFind){
+        div = '<div class = "findChild"><div class="col-6 text-center">' + objBus.data[key].ironNumber + '</div> <div class="col-6 text-center">'+objBus.data[key].mainPeople+'</div> </div>'
+        tblFind.innerHTML = div;
+        }
+
+    }
+    
+}
 

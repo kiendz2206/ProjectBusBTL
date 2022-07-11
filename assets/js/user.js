@@ -5,6 +5,7 @@ class User {
         this.localKey = 'tbl_users';
         this.admin = [{
             userName: 'admin',
+            fullName: 'admin',
             password: 'admin',
             email: 'admin@gmail.com',
             gender: 'nam',
@@ -13,6 +14,7 @@ class User {
         },
         {
             userName: 'company',
+            fullName: 'company',
             password: 'company',
             email: 'company@gmail.com',
             gender: 'nam',
@@ -21,6 +23,7 @@ class User {
         }],
             this.data = this.load();
         this.userName = '';
+        this.fullName = '';
         this.password = '';
         this.email = '';
         this.date = '';
@@ -47,6 +50,7 @@ class User {
 
         this.data.push({
             userName: this.userName,
+            fullName: this.fullName,
             password: this.password,
             email: this.email,
             gender: this.gender,
@@ -59,6 +63,7 @@ class User {
     check(index) {
         if(index in this.data){
             this.userName = this.data[index].userName;
+            this.fullName = this.data[index].fullName;
             this.email = this.data[index].email;
             this.gender = this.data[index].gender;
             this.role = this.data[index].role;
@@ -69,10 +74,11 @@ class User {
     }
     update(index){
         this.data[index].userName = this.userName;
-        this.data[index].userName = this.userName;
-        this.data[index].userName = this.userName;
-        this.data[index].userName = this.userName;
-        this.data[index].userName = this.userName;
+        this.data[index].fullName = this.fullName;
+        this.data[index].email = this.email;
+        this.data[index].gender = this.gender;
+        this.data[index].role = this.role;
+        this.data[index].date = this.date;
         this.save()
     }
 
@@ -89,6 +95,7 @@ function register() {
     let month = document.querySelector('#month').value
     let year = document.querySelector('#year').value
     objUser.userName = document.querySelector('#userName').value;
+    objUser.fullName = document.querySelector('#fullName').value;
     objUser.password = document.querySelector('#password').value;
     objUser.email = document.querySelector('#email').value;
     objUser.date = day + '/' + month + '/' + year;
@@ -96,6 +103,7 @@ function register() {
     for (let key in objUser.data) {
         if (objUser.data[key].userName == objUser.userName || objUser.data[key].email == objUser.email) {
             document.querySelector('#userName').value = '',
+            document.querySelector('#fullName').value = '',
                 document.querySelector('#password').value = '',
                 document.querySelector('#email').value = '',
                 document.querySelector('#day').value = '',
@@ -106,6 +114,7 @@ function register() {
         } else {
             objUser.add()
             document.querySelector('#userName').value = '',
+            document.querySelector('#fullName').value = '',
                 document.querySelector('#password').value = '',
                 document.querySelector('#email').value = '',
                 document.querySelector('#day').value = '',
@@ -203,5 +212,28 @@ function showUser(){
        tr += '</tr>'
     }
     tableBody.innerHTML = tr;
-} 
+}
+function showCompany(){
+    let table = document.querySelector('#tbl_showCompany tbody');
+    let objUser = new User;
+    let objBus = new Bus;
+    let tr = '';
+    let stt = 0;
+    let count = 0;
+    for(let key in objBus.data){
+        if(objBus.data[key].status == 'đang hoạt động'){
+            count++;
+        }
+    
+    }
+    for(let key in objUser.data){
+    if(objUser.data[key].role == 'company'){
+        stt++;
+        tr+='<tr>';
+        tr+='<td>'+stt+'</td>'+'<td>'+objUser.data[key].fullName+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+count+'</td>';
+    }
+    }
+    table.innerHTML = tr;
+
+}
 

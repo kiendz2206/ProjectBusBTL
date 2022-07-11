@@ -318,3 +318,24 @@ a {
    max-width: 60%;
    margin: 0 30px;
 }
+.btn-find{
+   padding: 10px 30px;
+}
+.titleFind{
+   display: inline;
+   color: #da9a85;
+
+
+}
+.resultFind{
+   padding: 20px;
+}
+.findChild{
+   width: 80%;
+   padding: 20px;
+   border-radius: 5px;
+   margin: 0 auto;
+   background-color: aliceblue;
+   justify-content: space-between;
+   
+}

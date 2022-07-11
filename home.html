@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Trang chủ</title>
     <script src="assets/js/user.js"></script>
+    <script src="assets/js/bus.js"></script>
     <script>
         if (!permission('member')) {
             window.location.href = 'login.html';
@@ -34,14 +35,17 @@
         </div>
     </div>
     <div class="container">
-        <div class="title-large text-center bold-text">
-            <span>Bus Peachy</span>
+        <div class="title-large text-center bold-text ">
+            <span class="titleFind">Bus Peachy</span>
 
         </div>
         <div class="find container-content full-width">
-            <div>
-                <input class="input-lable" type="title" value="">
-                <button class="button button-invite">Tra</button>
+            <div class="main-find text-center">
+                <input id="findBus" class="input-lable" type="title" value="">
+                <button  onclick="findBus()" class="button button-invite btn-find">Tra</button>
+            </div>
+            <div  id="resultFind" class="resultFind container-content">
+
             </div>
 
         </div>
