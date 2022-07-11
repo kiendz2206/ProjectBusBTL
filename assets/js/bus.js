@@ -57,13 +57,7 @@ class Bus {
     delete_all(){
         this.data.splice(0,this.data.length)
     }
-    apceptBus(index){
-        if(this.check(index)){
-            this.status = 'Đang hoạt động';
-            this.update(index);
-        }
-
-    }
+   
 
 }
 
@@ -142,7 +136,7 @@ function show() {
 
 }
 function delete_all(){
-    if(confirm('Bạn có muốn xóa tất cả user ??')){
+    if(confirm('Bạn có muốn xóa tất cả bus ??')){
     let objBus = new Bus;
     objBus.delete_all();
     objBus.save();
@@ -150,18 +144,46 @@ function delete_all(){
     }
     
 }
+function acceptBus(index){
+    let objBus = new Bus;
+    if(objBus.check(index)){
+        objBus.status = 'đang hoạt động'
+        objBus.update(index);
+    }
+    document.location.hash = '#finish';
+    showBus_manager();
+
+}
 
 
 function showBus_manager(){
+    
     let objBus = new Bus;
+    console.log(objBus.data)
     let tr ='';
-    let table = document.querySelector('#tbl-acpt');
-    for(let key in objBus.data){
-        if(objBus.data[key].status === 'Đang hoạt động'){
-            tr+= '<tr>';
-            tr+= ''
-
+    let stt = 0;
+    let table = document.querySelector('#acpt-bus #tbl-apct tbody')
+    console.log(table)
+   
+    if(objBus.data != null){
+        for(let key in objBus.data){
+            stt++
+            if(objBus.data[key].status === 'Chờ xét duyệt'){
+                tr+= '<tr>';
+                tr+= '<td>'+stt+'</td>'+ '<td>'+objBus.data[key].ironNumber+'</td>'+ '<td><button type="button" onclick ="acceptBus('+key+')">accept </button></td>'+ '<td><button type="button" onclick ="acceptBus('+key+')">accept </button></td>';
+                tr+= '</tr>';
+    
+            }
+        
         }
+        console.log(tr)
+        table.innerHTML = tr;
+      
+    
+
+    } else{
+        alert('khong co')
     }
+   
 }
 

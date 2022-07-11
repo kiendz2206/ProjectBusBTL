@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <script type="text/javascript" src="assets/js/user.js"></script>
-   
+    <script src="assets/js/bus.js"></script>
+
 </head>
+
 <body>
     <div class="header">
         <div class="container_header">
@@ -31,16 +34,16 @@
         <div class="title-container text-center">
             <h1>Thông tin các xe</h1>
         </div>
-        
+
         <div class="button-admin">
-           <strong><a href="#acpt-bus" class="full-width text-center ">lời mời tham gia</a></strong> 
+            <strong><a href="#acpt-bus" class="full-width text-center ">lời mời tham gia</a></strong>
         </div>
         <table>
 
         </table>
         <div class="content content-table">
-            <form class="full-width" >
-                <table style="width:100%" id="" >
+            <form class="full-width">
+                <table style="width:100%" id="">
                     <thead>
                         <th style="width:15%">STT</th>
                         <th style="width:25%">Tên NCC</th>
@@ -48,24 +51,42 @@
                         <th style="width:30%">số lượng xe đăng ký</th>
                     </thead>
                     <tbody></tbody>
-                    <tr id="child" class=" text-center" >
+                    <tr id="child" class=" text-center">
 
                     </tr>
                 </table>
             </form>
             <div id="acpt-bus" class="absolute center-inline addEditRemove">
-               <table id="tbl-apct">
+                <form id="full-width text-center">
+                    <table id="tbl-apct" class="full-width tbl-acpt">
+                        <thead>
+                            <th style="width:10%">STT</th>
+                            <th style="width:35%">Biển số</th>
+                            <th style="width:35%">trạng thái</th>
+                            <th style="width:150px">hành động</th>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
 
-               </table>
+                    </table>
+
+                </form>
+
 
             </div>
-    
+
         </div>
     </div>
     <script>
-        
-        if(permission('admin') == false){
-            window.location.href = 'login.html';}
+
+        if (permission('admin') == false) {
+            window.location.href = 'login.html';
+        }
+        showBus_manager();
+
+
     </script>
 </body>
+
 </html>

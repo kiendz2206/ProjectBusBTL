@@ -167,7 +167,7 @@ function permission(index) {
         return false
     }
 }
-function edit(index){
+function editUser(index){
     let objUser = new User;
     if(objUser.check(index)){
         document.location.hash = '#edit'
@@ -199,7 +199,7 @@ function showUser(){
     for(let key in objUser.data){
         stt++
        tr += '<tr>';
-       tr += '<td>'+stt+ '</td>'+'<td>'+objUser.data[key].userName+'</td>'+'<td>'+objUser.data[key].password+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+objUser.data[key].role+'</td>'+'<td>'+'<button class="buton" onclick="edit('+key+')"> sửa </button>'+'<button class="buton" onclick="remove('+key+')"> xóa </button>'+'</td>'
+       tr += '<td>'+stt+ '</td>'+'<td>'+objUser.data[key].userName+'</td>'+'<td>'+objUser.data[key].password+'</td>'+'<td>'+objUser.data[key].email+'</td>'+'<td>'+objUser.data[key].role+'</td>'+'<td>'+'<button class="buton" onclick="editUser('+key+')"> sửa </button>'+'<button class="buton" onclick="remove('+key+')"> xóa </button>'+'</td>'
        tr += '</tr>'
     }
     tableBody.innerHTML = tr;
